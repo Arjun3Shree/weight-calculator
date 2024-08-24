@@ -136,11 +136,10 @@
         console.log(pricePerGm);
 
         ansPrice = pricePerGm*totalReq;
-        console.log(ansPrice);
+        ansPrice = ansPrice.toFixed(2);
 
         retAns.innerText = "Rs:-/"+ansPrice;
         
-
     }
 
     }
