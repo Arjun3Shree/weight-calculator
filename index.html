@@ -79,7 +79,10 @@
     </div>
 </body>
 <script>
-    let pimeQuant = document.getElementById('quantity').value;
+
+    function check(){
+
+        let pimeQuant = document.getElementById('quantity').value;
     let regPrice = document.getElementById('price').value;
     let reqQuant = document.getElementById('reQuan').value;
     let retAns = document.getElementById('answer');
@@ -135,12 +138,13 @@
         ansPrice = pricePerGm*totalReq;
         console.log(ansPrice);
 
-        function check(){
-            retAns.innerText = "Rs:-/"+ansPrice;
-        }
+        retAns.innerText = "Rs:-/"+ansPrice;
         
 
     }
+
+    }
+    
 
     
 </script>
