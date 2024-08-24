@@ -73,6 +73,8 @@
 
             <p class="heading">Require Quantity</p>
             <input id="reQuan" type="text">
+
+            <p id="answer" class="heading"></p>
         </div>
     </div>
 </body>
@@ -80,6 +82,7 @@
     let pimeQuant = document.getElementById('quantity').value;
     let regPrice = document.getElementById('price').value;
     let reqQuant = document.getElementById('reQuan').value;
+    let retAns = document.getElementById('answer');
 
     console.log(pimeQuant);
     console.log(regPrice);
@@ -133,8 +136,10 @@
         console.log(ansPrice);
 
         function check(){
-        alert(ansPrice);
+            retAns.innerText = "";
+            retAns.innerText = "Rs:-/"+ansPrice;
         }
+        
 
     }
 
