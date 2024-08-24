@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price v/s Weight</title>
+    <style>
+        
+        p{
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            font-style: italic;
+            color: #1c32c2;
+            text-align: center;
+            text-decoration: none;
+            letter-spacing: 1px;
+            line-height: 1.5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        #mainHeading{
+            position: center;
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            font-style: italic;
+            color: #b60695;
+            height: 40px;
+            margin: 0;
+        }
+        .heading{
+            border: 2px;
+        }
+        #mainCont{
+            text-align: center;
+
+            border: 2px solid pink;
+            height: 60vh;
+            width: 40vh;
+            margin: 10vh auto;   /* y, x*/
+        }
+        #button{
+            margin-top: 8vh;
+            margin-bottom: 4vh;
+        }
+
+        #button{
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            color: rgb(7, 149, 16);
+            text-transform: uppercase;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #button:hover{
+            background-color: #0056b3;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="mainCont">
+        <h3 id="mainHeading">Weight v/s Price</h3>
+        <div class="input" id="weight">
+            <p class="heading">Quantity(Kg)</p>
+            <input id="quantity" type="text">
+            <p class="heading">Price</p>
+            <input id="price" type="text"><br>
+
+            <input id="button" type="submit" value="Do Magic" onclick="check()">
+
+            <p class="heading">Require Quantity</p>
+            <input id="reQuan" type="text">
+        </div>
+    </div>
+</body>
+<script>
+    let pimeQuant = document.getElementById('quantity').value;
+    let regPrice = document.getElementById('price').value;
+    let reqQuant = document.getElementById('reQuan').value;
+
+    console.log(pimeQuant);
+    console.log(regPrice);
+    console.log(reqQuant);
+
+    var nom1,nom2,nom3 = false;
+    
+    var formatpimeQuant = /^\d+\.\d{3}$/;
+    var formatreqQuant1 = /^(?:\d{1,3})$/;
+
+    // Check111
+    if(formatreqQuant1.test(pimeQuant) || formatpimeQuant.test(pimeQuant)){
+        console.log("The format mathches!!");
+        nom1 = true;
+    }
+    else{
+        console.log("the Input not match the format!");
+    }
+    // Check222
+    if(formatreqQuant1.test(reqQuant) || formatpimeQuant.test(reqQuant)){
+        console.log("Requir Quat Ok");
+        nom2 = true;
+    }
+    else{
+        console.log("Not OK");
+    }
+
+    //Check333
+    if(formatreqQuant1.test(regPrice)){
+        nom3 = true;
+    }
+    else{
+        console.log("Not mathch!!!");
+    }
+
+
+    // let ansPrice;
+
+    if(nom1 && nom2 && nom3){
+        console.log("All OK");
+        
+        totalQuant = pimeQuant.replace(".","");
+        totalReq = reqQuant.replace(".","");
+
+        console.log(totalQuant);
+        let mrp = regPrice;
+        let pricePerGm = mrp/totalQuant;
+        console.log(pricePerGm);
+
+        ansPrice = pricePerGm*totalReq;
+        console.log(ansPrice);
+
+        function check(){
+        alert(ansPrice);
+        }
+
+    }
+
+    
+</script>
+</html>
